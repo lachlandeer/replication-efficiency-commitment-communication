@@ -1,0 +1,5 @@
+sandbox/
+src/data/
+.Rhistory
+.Rproj.user/
+*.Rproj
