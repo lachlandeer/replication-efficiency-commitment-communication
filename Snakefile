@@ -13,10 +13,7 @@ logAll = "2>&1"
 # all            : build outputs that are the core of the project
 rule all:
     input:
-        config["out_data"] + "decisions/cheap_talk.csv",
-        config["log"] + "data_mgt/recover_decisions_baseline.txt",
-        config["out_data"] + "decisions/revision_mechanism.csv",
-        data = config["out_data"] + "intermediate_decisions/revision_inital.csv", 
+        data = config["out_data"] + "decisions/subject_decisions.csv",
         subjects_data = config["out_data"] + "ztree/subjects.csv",
         global_data = config["out_data"] + "ztree/globals.csv",
 

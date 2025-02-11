@@ -1,3 +1,22 @@
+rule gather_decisions:
+    input:
+        script    = config["src_data_mgt"] + "gather_decisions.R",
+        baseline  = config["out_data"] + "decisions/baseline.csv",
+        cheaptalk = config["out_data"] + "decisions/cheap_talk.csv",
+        revision  = config["out_data"] + "decisions/revision_mechanism.csv",
+        subjects  = config["out_data"] + "ztree/subjects.csv"
+    output:
+        data = config["out_data"] + "decisions/subject_decisions.csv"
+    log:
+        config["log"] + "data_mgt/gather_decisions.txt"
+    shell:
+        "{runR} {input.script} \
+            --baseline  {input.baseline}  \
+            --cheaptalk {input.cheaptalk} \
+            --revision  {input.revision} \
+            --subjects  {input.subjects} \
+            --out {output.data} \
+            > {log} {logAll}"
 
 # recover_decisions_revision_final: retrives final effort choices for treatments that feature revision mechanism
 rule recover_decisions_revision_final:
