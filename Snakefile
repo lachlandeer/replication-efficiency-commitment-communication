@@ -14,8 +14,9 @@ logAll = "2>&1"
 rule all:
     input:
         data = config["out_data"] + "decisions/subject_decisions.csv",
+        quiz = config["out_data"] + "subject_characteristics.csv",
         subjects_data = config["out_data"] + "ztree/subjects.csv",
-        global_data = config["out_data"] + "ztree/globals.csv",
+        global_data = config["out_data"] + "ztree/globals.csv"
 
 
 # --- Cleaning Rules --- #

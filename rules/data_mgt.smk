@@ -95,3 +95,20 @@ rule ztree_tables:
             --subjects {output.subjects_data} --globals {output.globals_data} \
             > {log} {logAll}"
 
+# clean_subject_characteristics: Cleans the subject characteristics data
+rule clean_subject_characteristics:
+    input:
+        script        = config["src_data_mgt"] +"clean_subject_characteristics.R",
+        treatments    = config["src_data"] + "treatment_mapping.csv",
+        subjects_data = config["out_data"] + "ztree/subjects.csv"
+    output:
+        data = config["out_data"] + "subject_characteristics.csv"
+    params:
+        datapath = "src/data/ztree/"
+    log:
+        config["log"] + "data_mgt/subject_characteristics.txt"
+    shell:
+        "{runR} {input.script} --datapath {params.datapath} --treatments {input.treatments}\
+            --subjects {input.subjects_data} --out {output.data} \
+            > {log} {logAll}"
+
