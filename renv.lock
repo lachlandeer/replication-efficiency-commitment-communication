@@ -1,0 +1,27 @@
+{
+  "R": {
+    "Version": "4.2.0",
+    "Repositories": [
+      {
+        "Name": "CRAN",
+        "URL": "https://cloud.r-project.org"
+      }
+    ]
+  },
+  "Packages": {
+    "renv": {
+      "Package": "renv",
+      "Version": "1.0.11.9000",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "renv",
+      "RemoteUsername": "rstudio",
+      "RemoteSha": "1c6552b3ef98b8b7de18457f01a05120f501dc41",
+      "Requirements": [
+        "utils"
+      ],
+      "Hash": "eeeeaa5b8f13240872569df0718c768c"
+    }
+  }
+}
