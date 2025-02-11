@@ -12,8 +12,13 @@ logAll = "2>&1"
 # --- Main Build Rule --- #
 # all            : build outputs that are the core of the project
 rule all:
-    shell:
-        "print('Hello')"
+    input:
+        config["out_data"] + "decisions/cheap_talk.csv",
+        config["log"] + "data_mgt/recover_decisions_baseline.txt",
+        config["out_data"] + "decisions/revision_mechanism.csv",
+        data = config["out_data"] + "intermediate_decisions/revision_inital.csv", 
+        subjects_data = config["out_data"] + "ztree/subjects.csv",
+        global_data = config["out_data"] + "ztree/globals.csv",
 
 
 # --- Cleaning Rules --- #
