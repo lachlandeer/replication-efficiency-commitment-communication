@@ -44,4 +44,4 @@ include: config["rules"] + "data_mgt.smk"
 # 2. Other rules
 include: config["rules"] + "renv.smk"
 # include: config["rules"] + "clean.smk"
-# include: config["rules"] + "dag.smk"
+include: config["rules"] + "dag.smk"
