@@ -13,7 +13,7 @@ logAll = "2>&1"
 # all            : build outputs that are the core of the project
 rule all:
     input:
-        data = config["out_data"] + "decisions/subject_decisions.csv",
+        config["out_data"] + "decisions/subject_decisions_w_payoffs.csv",
         quiz = config["out_data"] + "subject_characteristics.csv",
         subjects_data = config["out_data"] + "ztree/subjects.csv",
         global_data = config["out_data"] + "ztree/globals.csv"

@@ -1,3 +1,16 @@
+# decisions_w_payoffs : Add payoffs to subject decisions data 
+rule decisions_w_payoffs:
+    input:
+        script = config["src_data_mgt"] + "decisions_with_payoffs.R",
+        data   = config["out_data"] + "decisions/subject_decisions.csv",
+        payoff = config["src_lib"] + "compute_payoff.R",
+    output:
+        data = config["out_data"] + "decisions/subject_decisions_w_payoffs.csv",
+    log:
+        config["log"] + "data_mgt/decisons_w_payoffs.txt"
+    shell:
+        "{runR} {input.script} --data {input.data} --payoffFunction {input.payoff} --out {output.data} > {log} {logAll}"       
+
 rule gather_decisions:
     input:
         script    = config["src_data_mgt"] + "gather_decisions.R",
