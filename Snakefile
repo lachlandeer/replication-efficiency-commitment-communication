@@ -14,7 +14,8 @@ logAll = "2>&1"
 # all            : build outputs that are the core of the project
 rule all:
     input:
-        config["out_analysis"] + "efficiency.csv",
+        figure_2 = config["out_figures"] + "efficiency_by_treatment.pdf",
+        # config["out_analysis"] + "efficiency.csv",
         # indiv_data = config["out_data"] + "analysis_data/individual.csv",
         group_data = config["out_data"] + "analysis_data/group.csv",
         # profiles = config["out_models"] + "max_and_min_profiles.json"
@@ -41,7 +42,7 @@ rule help_main:
 include: config["rules"] + "data_mgt.smk"
 include: config["rules"] + "models.smk"
 include: config["rules"] + "analysis.smk"
-# include: config["rules"] + "figures.smk"
+include: config["rules"] + "figures.smk"
 # include: config["rules"] + "tables.smk"
 # 2. Other rules
 include: config["rules"] + "renv.smk"
