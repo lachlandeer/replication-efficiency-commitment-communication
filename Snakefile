@@ -15,7 +15,9 @@ logAll = "2>&1"
 rule all:
     input:
         indiv_data = config["out_data"] + "analysis_data/individual.csv",
-        group_data = config["out_data"] + "analysis_data/group.csv"
+        group_data = config["out_data"] + "analysis_data/group.csv",
+        sim = config["out_models"] + "simulated_payoffs.csv",
+        sim2 = config["out_models"] + "simulated_payoffs_vhbb.csv"
 
 
 # --- Cleaning Rules --- #
@@ -37,6 +39,7 @@ rule help_main:
 # Include all other Snakefiles that contain rules that are part of the project
 # 1. project specific
 include: config["rules"] + "data_mgt.smk"
+include: config["rules"] + "models.smk"
 # include: config["rules"] + "analysis.smk"
 # include: config["rules"] + "figures.smk"
 # include: config["rules"] + "tables.smk"
