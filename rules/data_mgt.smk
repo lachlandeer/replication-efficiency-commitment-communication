@@ -94,8 +94,12 @@ rule recover_decisions_baseline:
 # ztree_tables  : Parse zTree Tables data and extract subjects/globals
 rule ztree_tables:
     input:
-        script = config["src_data_mgt"] + "ztree_tables.R",
-        treatments = config["src_data"] + "treatment_mapping.csv"
+        script     = config["src_data_mgt"] + "ztree_tables.R",
+        treatments = config["src_data"] + "treatment_mapping.csv",
+        raw_data   = expand(config["src_data"] + "ztree/" +
+                            "{iFile}",
+                            iFile = RAWDATA,
+                            )
     output:
         subjects_data = config["out_data"] + "ztree/subjects.csv",
         globals_data = config["out_data"] + "ztree/globals.csv"
@@ -113,7 +117,11 @@ rule clean_subject_characteristics:
     input:
         script        = config["src_data_mgt"] +"clean_subject_characteristics.R",
         treatments    = config["src_data"] + "treatment_mapping.csv",
-        subjects_data = config["out_data"] + "ztree/subjects.csv"
+        subjects_data = config["out_data"] + "ztree/subjects.csv",
+        raw_data      = expand(config["src_data"] + "ztree/" +
+                            "{iFile}",
+                            iFile = RAWDATA,
+                            )
     output:
         data = config["out_data"] + "subject_characteristics.csv"
     params:

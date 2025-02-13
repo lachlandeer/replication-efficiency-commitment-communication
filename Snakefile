@@ -4,6 +4,7 @@
 # --- Importing Configuration Files --- #
 configfile: "paths.yaml"
 
+RAWDATA = glob_wildcards(config["src_data"] + "ztree/{fname}").fname
 
 # --- Variable Declarations ---- #
 runR = "Rscript --no-save --no-restore --verbose"
