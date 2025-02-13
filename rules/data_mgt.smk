@@ -1,3 +1,30 @@
+# analysis_group : Create the data set used in empirical analysis scripts for group level outcomes
+rule analysis_group:
+    input:
+        script = config["src_data_mgt"] + "gen_analysis_data_group.R",
+        indiv  = config["out_data"] + "analysis_data/individual.csv"
+    output:
+        data = config["out_data"] + "analysis_data/group.csv"
+    log:
+        config["log"] + "data_mgt/gen_analysis_data_group.txt",
+    shell:
+        "{runR} {input.script} --data {input.indiv} \
+            --out {output.data} > {log} {logAll}"  
+
+# analysis_individual : Create the data set used in empirical analysis scripts for individual level outcomes
+rule analysis_individual:
+    input:
+        script = config["src_data_mgt"] + "gen_analysis_data_individual.R",
+        decisions       = config["out_data"] + "decisions/subject_decisions_w_payoffs.csv",
+        characteristics = config["out_data"] + "subject_characteristics.csv"
+    output:
+        data = config["out_data"] + "analysis_data/individual.csv"
+    log:
+        config["log"] + "data_mgt/gen_analysis_data_individual.txt",
+    shell:
+        "{runR} {input.script} --decisions {input.decisions} --characteristics {input.characteristics} \
+            --out {output.data} > {log} {logAll}"  
+
 # decisions_w_payoffs : Add payoffs to subject decisions data 
 rule decisions_w_payoffs:
     input:
