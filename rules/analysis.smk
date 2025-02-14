@@ -12,6 +12,20 @@ rule table_02_clustered:
         "{runR} {input.script} --subjects {input.subject} --group {input.group} \
          --out {output.file} > {log} {logAll}"
 
+# table_02_homosk: Replicate Table 2 of main text w/ homosk SE
+rule table_02_homosk:
+    input: 
+        script    = config["src_analysis"] + "table_02_homosk.R",
+        subject   = config["out_data"] + "analysis_data/individual.csv",
+        group     = config["out_data"] + "analysis_data/group.csv",
+    output:
+        file = config["out_analysis"] + "table_02_homosk.Rds"
+    log:
+        config["log"] + "analysis/table_02_homosk.txt"
+    shell:
+        "{runR} {input.script} --subjects {input.subject} --group {input.group} \
+         --out {output.file} > {log} {logAll}"
+
 # result_01_mwu: Mann Whitney U test results for Result 1
 rule result_01_mwu:
     input: 

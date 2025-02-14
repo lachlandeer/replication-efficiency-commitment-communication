@@ -16,13 +16,10 @@ rule all:
     input:
         result_01    = config["out_analysis"] + "result_01_tests.csv",
         table_02_clustered = config["out_analysis"] + "table_02_clustered.Rds",
+        table_02_homosk    = config["out_analysis"] + "table_02_homosk.Rds",
         figure_2     = config["out_figures"] + "efficiency_by_treatment.pdf",
         eff_summary  = config["out_tables"] + "efficiency_summary.tex",
-        eff_by_round = config["out_tables"] + "efficiency_by_round.tex",
-        # config["out_analysis"] + "efficiency.csv",
-        # indiv_data = config["out_data"] + "analysis_data/individual.csv",
-        group_data = config["out_data"] + "analysis_data/group.csv",
-        # profiles = config["out_models"] + "max_and_min_profiles.json"
+        eff_by_round = config["out_tables"] + "efficiency_by_round.tex"
 
 
 # --- Cleaning Rules --- #
