@@ -1,3 +1,17 @@
+# table_02_clustered: Replicate Table 2 of main text w/ clustered SE
+rule table_02_clustered:
+    input: 
+        script    = config["src_analysis"] + "table_02_clustered.R",
+        subject   = config["out_data"] + "analysis_data/individual.csv",
+        group     = config["out_data"] + "analysis_data/group.csv",
+    output:
+        file = config["out_analysis"] + "table_02_clustered.Rds"
+    log:
+        config["log"] + "analysis/table_02_clustered.txt"
+    shell:
+        "{runR} {input.script} --subjects {input.subject} --group {input.group} \
+         --out {output.file} > {log} {logAll}"
+
 # result_01_mwu: Mann Whitney U test results for Result 1
 rule result_01_mwu:
     input: 
