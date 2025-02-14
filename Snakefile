@@ -14,6 +14,7 @@ logAll = "2>&1"
 # all            : build outputs that are the core of the project
 rule all:
     input:
+        result_01    = config["out_analysis"] + "result_01_tests.csv",
         figure_2     = config["out_figures"] + "efficiency_by_treatment.pdf",
         eff_summary  = config["out_tables"] + "efficiency_summary.tex",
         eff_by_round = config["out_tables"] + "efficiency_by_round.tex",

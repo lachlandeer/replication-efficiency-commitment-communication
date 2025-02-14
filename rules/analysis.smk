@@ -1,3 +1,17 @@
+# result_01_mwu: Mann Whitney U test results for Result 1
+rule result_01_mwu:
+    input: 
+        script = config["src_analysis"] + "result_01.R",
+        data   = config["out_data"] + "analysis_data/individual.csv",
+    output:
+        file = config["out_analysis"] + "result_01_tests.csv"
+    log:
+        config["log"] + "analysis/result_01.txt"
+    shell:
+        "{runR} {input.script} --data {input.data} \
+         --out {output.file} > {log} {logAll}"
+
+
 # efficiency: Compute efficiency metrics by treatment and period
 rule efficiency:
     input:
