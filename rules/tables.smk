@@ -1,3 +1,16 @@
+# tab_02_clustered:   Regression Table for estimates in Table 2 of AR w/ clustered SE
+rule tab_02_clustered:
+    input: 
+        script = config["src_tables"] + "tab_02_clustered.R",
+        models = config["out_analysis"] + "table_02_clustered.Rds",
+    output:
+        tex = config["out_tables"] + "table_02_clustered.tex",
+    log:
+        config["log"] + "tables/table_02_clustered.txt",
+    shell:
+        "{runR} {input.script} --models {input.models} --out {output.tex} > {log} {logAll}" 
+
+
 # tab_efficiency_summary: Summarize overall efficiency by treatment in table
 rule tab_efficiency_summary:
     input: 

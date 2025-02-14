@@ -15,7 +15,7 @@ logAll = "2>&1"
 rule all:
     input:
         result_01    = config["out_analysis"] + "result_01_tests.csv",
-        table_02_clustered = config["out_analysis"] + "table_02_clustered.Rds",
+        table_02_clustered = config["out_tables"] + "table_02_clustered.tex",
         table_02_homosk    = config["out_analysis"] + "table_02_homosk.Rds",
         figure_2     = config["out_figures"] + "efficiency_by_treatment.pdf",
         eff_summary  = config["out_tables"] + "efficiency_summary.tex",
