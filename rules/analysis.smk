@@ -1,3 +1,19 @@
+# result 2: Statistical Tests for Result 2
+rule result_02:
+    input:
+        script  = config["src_analysis"] + "result_02.R",
+        choices = config["out_data"] + "analysis_data/individual.csv",
+        initial = config["out_data"] + "intermediate_decisions/revision_inital.csv",
+        payoffs = config["out_models"] + "max_and_min_profiles.json",
+    output: 
+        mwu = config["out_analysis"] + "result_02_mwu.csv",
+        binomial = config["out_analysis"] + "result_02_binomial.json"
+    log:
+        config["log"] + "analysis/result_02.txt"
+    shell:
+        "{runR} {input.script} --choices {input.choices} --initial {input.initial} \
+         --payoffs {input.payoffs} --mwu {output.mwu} --binomial {output.binomial} > {log} {logAll}"
+
 # table_02_clustered: Replicate Table 2 of main text w/ clustered SE
 rule table_02_clustered:
     input: 
