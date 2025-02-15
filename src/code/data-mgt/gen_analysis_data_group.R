@@ -45,8 +45,11 @@ group_level <-
               # if each group has one distinct value, then they've coordinated on it
               full_coord = n_distinct(choice) == 1,
               # how often is a seven chosen
-              num_sevens = sum(choice == 7, na.rm = TRUE) / n()
-              
+              num_sevens = sum(choice == 7, na.rm = TRUE) / n(),
+              # average payoff
+              payoff = mean(payoff),
+              # eqn dev
+              eqn_dev = mean(eqn_dev)
     ) %>%
     ungroup()
 
