@@ -40,7 +40,7 @@ df <-
 message("Creating outcome variables")
 group_level <-
     df %>%
-    group_by(treatment, group_id_unique, period) %>%
+    group_by(treatment = treatment_simple, group_id_unique, period) %>%
     summarize(min_effort = min(choice),
               # if each group has one distinct value, then they've coordinated on it
               full_coord = n_distinct(choice) == 1,
@@ -49,7 +49,8 @@ group_level <-
               # average payoff
               payoff = mean(payoff),
               # eqn dev
-              eqn_dev = mean(eqn_dev)
+              eqn_dev = mean(eqn_dev),
+              choice = mean(choice)
     ) %>%
     ungroup()
 
