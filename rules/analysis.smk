@@ -1,4 +1,44 @@
-# result 2: Statistical Tests for Result 2
+# result_05: Statistical tests for result 5
+rule result_05:
+    input: 
+        script = config["src_analysis"] + "result_05.R",
+        data   = config["out_data"] + "analysis_data/group.csv",
+    output:
+        file = config["out_analysis"] + "result_05_tests.csv"
+    log:
+        config["log"] + "analysis/result_05.txt"
+    shell:
+        "{runR} {input.script} --data {input.data} \
+         --out {output.file} > {log} {logAll}"
+
+# result_04: Statistical tests for result 4
+rule result_04:
+    input: 
+        script = config["src_analysis"] + "result_04.R",
+        data   = config["out_data"] + "analysis_data/group.csv",
+    output:
+        file = config["out_analysis"] + "result_04_tests.csv"
+    log:
+        config["log"] + "analysis/result_04.txt"
+    shell:
+        "{runR} {input.script} --data {input.data} \
+         --out {output.file} > {log} {logAll}"
+
+
+# result_03: Statistical tests for result 3 
+rule result_03:
+    input: 
+        script = config["src_analysis"] + "result_03.R",
+        data   = config["out_data"] + "analysis_data/group.csv",
+    output:
+        file = config["out_analysis"] + "result_03_tests.csv"
+    log:
+        config["log"] + "analysis/result_03.txt"
+    shell:
+        "{runR} {input.script} --data {input.data} \
+         --out {output.file} > {log} {logAll}"
+
+# result_02: Statistical Tests for Result 2
 rule result_02:
     input:
         script  = config["src_analysis"] + "result_02.R",
