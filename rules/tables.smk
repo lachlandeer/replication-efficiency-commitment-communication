@@ -22,6 +22,17 @@ rule tab_02_clustered:
     shell:
         "{runR} {input.script} --models {input.models} --out {output.tex} > {log} {logAll}" 
 
+# tab_result_01_mwu: Produce a results table summarizing U tests for Result 1
+rule tab_result_01_mwu: 
+    input:
+        script = config["src_tables"] + "result_01_mwu.R",
+        data   = config["out_analysis"] + "result_01_tests.csv",
+    output:
+        tex = config["out_tables"] + "result_01_mwu.tex",
+    log:
+        config["log"] + "tables/result_01_mwu.txt",
+    shell:
+        "{runR} {input.script} --data {input.data} --out {output.tex} > {log} {logAll}" 
 
 # tab_efficiency_summary: Summarize overall efficiency by treatment in table
 rule tab_efficiency_summary:
