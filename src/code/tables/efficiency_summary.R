@@ -36,6 +36,7 @@ efficiency <-
 # --- Make Table --- #
 tab <-
     efficiency %>%
+    select(-period) %>%
     arrange(efficiency) %>%
     gt() %>%
     fmt_number(decimals = 3) %>%

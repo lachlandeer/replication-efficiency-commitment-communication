@@ -52,11 +52,16 @@ min_payoff <-
     select(avg_group_payoff) %>%
     pull()
 
+message("Min payoff is ", min_payoff)
+
 max_payoff <-
     payoffs_profiles %>%
     filter(payoffs == "standard", condition == "highest") %>%
     select(avg_group_payoff) %>%
     pull()
+
+message("Max payoff is ", max_payoff)
+
 
 min_payoff_vhbb <-
     payoffs_profiles %>%
@@ -64,11 +69,17 @@ min_payoff_vhbb <-
     select(avg_group_payoff) %>%
     pull()
 
+message("Min payoff with VHBB is ", min_payoff_vhbb)
+
+
 max_payoff_vhbb <-
     payoffs_profiles %>%
     filter(payoffs == "vhbb", condition == "highest") %>%
     select(avg_group_payoff) %>%
     pull()
+
+message("Max payoff with VHBB is ", max_payoff_vhbb)
+
 
 # --- Overall Efficiency --- #
 # Use all periods, aggregate metric

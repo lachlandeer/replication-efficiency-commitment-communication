@@ -40,21 +40,22 @@ if (is.null(opt$vhbb)){
 # --- Load Libraries --- #
 df <- 
     read_csv(opt$standard)
+
 df_vhbb <- 
     read_csv(opt$vhbb)
 
 # --- Get Max and Min Payoff Profiles for Standard Parameterization --- #
-# max indiv earning
+# max avg indiv earning
 out_high <- 
     df %>%
-    slice_max(payoff_player1, n =1) %>%
+    slice_max(avg_group_payoff, n =1) %>%
     mutate(condition = "highest")
 
-# min indiv earnings
+# min avg indiv earnings
 out_low <- 
     df %>%
     ungroup() %>%
-    slice_min(payoff_player1, n = 1, with_ties = FALSE) %>%
+    slice_min(avg_group_payoff, n = 1, with_ties = FALSE) %>%
     mutate(condition = "lowest")
 
 out <- 
@@ -65,17 +66,17 @@ out <-
 # max indiv earning
 out_high_vhbb <- 
     df_vhbb %>%
-    slice_max(payoff_player1, n =1) %>%
+    slice_max(avg_group_payoff, n =1) %>%
     mutate(condition = "highest")
 
 # min indiv earnings
 out_low_vhbb <- 
     df_vhbb %>%
-    slice_min(payoff_player1, n = 1, with_ties = FALSE) %>%
+    slice_min(avg_group_payoff, n = 1, with_ties = FALSE) %>%
     mutate(condition = "lowest")
 
 out_vhbb <- 
-    rbind(out_high, out_low) %>%
+    rbind(out_high_vhbb, out_low_vhbb) %>%
     mutate(payoffs = "vhbb")
 
 # --- Merge --- #
