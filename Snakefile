@@ -24,7 +24,8 @@ rule all:
         result_05 = config["out_analysis"] + "result_05_tests.csv",
         figure_2     = config["out_figures"] + "efficiency_by_treatment.pdf",
         eff_summary  = config["out_tables"] + "efficiency_summary.tex",
-        eff_by_round = config["out_tables"] + "efficiency_by_round.tex"
+        eff_by_round = config["out_tables"] + "efficiency_by_round.tex",
+        summary_stats_grp = config["out_tables"] + "tab_grp_summary.tex"
 
 
 # --- Cleaning Rules --- #

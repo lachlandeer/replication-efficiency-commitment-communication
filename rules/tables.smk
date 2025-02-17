@@ -57,3 +57,15 @@ rule tab_efficiency_by_round:
         config["log"] + "tables/efficiency_by_round.txt",
     shell:
         "{runR} {input.script} --data {input.data} --out {output.tex} > {log} {logAll}" 
+
+# tab_grp_summary: Report group level summary statistics by treatment 
+rule tab_grp_summary:
+    input: 
+        script = config["src_tables"] + "tab_grp_summary.R",
+        data   = config["out_analysis"] + "group_summary_stats.csv",
+    output:
+        tex = config["out_tables"] + "tab_grp_summary.tex",
+    log:
+        config["log"] + "tables/tab_grp_summary.txt",
+    shell:
+        "{runR} {input.script} --data {input.data} --out {output.tex} > {log} {logAll}" 

@@ -110,3 +110,14 @@ rule efficiency:
         "{runR} {input.script} --data {input.data} --payoffs {input.payoff_scalers} \
          --out {output.data} > {log} {logAll}"
     
+rule group_summary_stats:
+    input:
+        script = config["src_analysis"] + "group_summary_stats.R",
+        data   = config["out_data"] + "analysis_data/group.csv",
+    output:
+        data = config["out_analysis"] + "group_summary_stats.csv",
+    log:
+        config["log"] + "analysis/group_summary.txt"
+    shell:
+        "{runR} {input.script} --data {input.data} \
+         --out {output.data} > {log} {logAll}"
