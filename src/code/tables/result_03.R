@@ -29,7 +29,8 @@ if (is.null(opt$data)){
 
 # --- Load Data --- #
 df <-
-    read_csv(opt$data)
+    read_csv(opt$data) %>%
+    filter(!(group1 %in% c("Random RM", "RM VHBB") & group2 %in% c("Random RM", "RM VHBB"))) 
 
 # --- Produce Table --- #
 tab <- 
@@ -44,7 +45,7 @@ tab <-
                TRUE ~ "Full Coordination"
            )
            ) %>%
-    arrange(desc(outcome)) %>%
+    arrange(desc(outcome), desc(outcome)) %>%
     gt() %>%
     cols_label(
         group1 = "Treatment 1",

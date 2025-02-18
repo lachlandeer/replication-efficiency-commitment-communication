@@ -31,7 +31,7 @@ if (is.null(opt$data)){
 # --- Load the Data --- #
 group_level <- 
     read_csv("out/data/analysis_data/group.csv") %>%
-    filter(treatment %in% c("Revision Mechanism", "Random RM")) %>%
+    filter(treatment %in% c("Revision Mechanism", "Random RM", "RM VHBB")) %>%
     mutate(full_coord = as.numeric(full_coord))
 
 
