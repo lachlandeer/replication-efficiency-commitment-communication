@@ -1,3 +1,39 @@
+# tab_result_05: Produce a results table summarizing U tests for Result 4
+rule tab_result_05: 
+    input:
+        script = config["src_tables"] + "result_05.R",
+        data   = config["out_analysis"] + "result_05_tests.csv",
+    output:
+        tex = config["out_tables"] + "result_05.tex",
+    log:
+        config["log"] + "tables/result_05.txt",
+    shell:
+        "{runR} {input.script} --data {input.data} --out {output.tex} > {log} {logAll}" 
+
+# tab_result_04: Produce a results table summarizing U tests for Result 4
+rule tab_result_04: 
+    input:
+        script = config["src_tables"] + "result_04.R",
+        data   = config["out_analysis"] + "result_04_tests.csv",
+    output:
+        tex = config["out_tables"] + "result_04.tex",
+    log:
+        config["log"] + "tables/result_04.txt",
+    shell:
+        "{runR} {input.script} --data {input.data} --out {output.tex} > {log} {logAll}" 
+
+# tab_result_03: Produce a results table summarizing U tests for Result 3
+rule tab_result_03: 
+    input:
+        script = config["src_tables"] + "result_03.R",
+        data   = config["out_analysis"] + "result_03_tests.csv",
+    output:
+        tex = config["out_tables"] + "result_03.tex",
+    log:
+        config["log"] + "tables/result_03.txt",
+    shell:
+        "{runR} {input.script} --data {input.data} --out {output.tex} > {log} {logAll}" 
+
 # tab_02_homosk:   Regression Table for estimates in Table 2 of AR w/ clustered SE
 rule tab_02_homosk:
     input: 
