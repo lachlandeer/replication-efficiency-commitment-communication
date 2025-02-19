@@ -29,7 +29,8 @@ if (is.null(opt$data)){
 
 # --- Load Data --- #
 df <-
-    read_csv(opt$data)
+    read_csv(opt$data) %>%
+    filter(!(group1 %in% c("Synchronous RM", "Infrequent Revision Mechanism") & group2 %in% c("Synchronous RM", "Infrequent Revision Mechanism"))) 
 
 # --- Produce Table --- #
 tab <- 
