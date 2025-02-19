@@ -22,6 +22,7 @@ rule all:
         result_03 = config["out_tables"] + "result_03.tex",
         result_04 = config["out_tables"] + "result_04.tex",
         result_05 = config["out_tables"] + "result_05.tex",
+        result_09 = config["out_tables"] + "result_09.tex",
         figure_2     = config["out_figures"] + "efficiency_by_treatment.pdf",
         eff_summary  = config["out_tables"] + "efficiency_summary.tex",
         eff_by_round = config["out_tables"] + "efficiency_by_round.tex",

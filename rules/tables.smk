@@ -1,3 +1,15 @@
+# tab_result_09: Produce a results table summarizing U tests for Result 9
+rule tab_result_09: 
+    input:
+        script = config["src_tables"] + "result_09.R",
+        data   = config["out_analysis"] + "result_09_tests.csv",
+    output:
+        tex = config["out_tables"] + "result_09.tex",
+    log:
+        config["log"] + "tables/result_09.txt",
+    shell:
+        "{runR} {input.script} --data {input.data} --out {output.tex} > {log} {logAll}" 
+
 # tab_result_05: Produce a results table summarizing U tests for Result 4
 rule tab_result_05: 
     input:

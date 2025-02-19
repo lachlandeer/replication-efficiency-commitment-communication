@@ -1,3 +1,16 @@
+# result_09: Statistical tests for result 9
+rule result_09:
+    input: 
+        script = config["src_analysis"] + "result_09.R",
+        data   = config["out_data"] + "analysis_data/group.csv",
+    output:
+        file = config["out_analysis"] + "result_09_tests.csv"
+    log:
+        config["log"] + "analysis/result_09.txt"
+    shell:
+        "{runR} {input.script} --data {input.data} \
+         --out {output.file} > {log} {logAll}"
+
 # result_05: Statistical tests for result 5
 rule result_05:
     input: 
