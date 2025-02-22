@@ -39,6 +39,20 @@ rule decisions_w_payoffs:
     shell:
         "{runR} {input.script} --data {input.data} --payoffFunction {input.payoff} --out {output.data} > {log} {logAll}"       
 
+# rct_messages_w_payoffs : Add payoffs to rct final messages
+rule rct_messages_w_payoffs:
+    input:
+        script = config["src_data_mgt"] + "rct_messages_with_payoffs.R",
+        data   = config["out_data"] + "decisions/final_messages_rct.csv",
+        payoff = config["src_lib"] + "compute_payoff.R",
+    output:
+        data = config["out_data"] + "decisions/rct_messages_w_payoffs.csv",
+    log:
+        config["log"] + "data_mgt/rct_messages_w_payoffs.txt"
+    shell:
+        "{runR} {input.script} --data {input.data} --payoffFunction {input.payoff} --out {output.data} > {log} {logAll}" 
+
+
 rule gather_decisions:
     input:
         script    = config["src_data_mgt"] + "gather_decisions.R",
