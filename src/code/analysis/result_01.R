@@ -47,7 +47,7 @@ out <-
     pairwise_wilcox_test(
         df, 
         payoff ~ treatment,
-        p.adjust.method = "BH"
+        ref.group = "Revision Mechanism"
         )
 
 # --- Save ---# 

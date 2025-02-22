@@ -39,21 +39,27 @@ group_level <-
 out_1 <- 
     pairwise_wilcox_test(group_level, 
                          payoff ~ treatment, 
+                         ref.group = "Revision Mechanism"
                          )
 out_2 <- 
     pairwise_wilcox_test(group_level, 
-                         eqn_dev ~ treatment
+                         eqn_dev ~ treatment,
+                         ref.group = "Revision Mechanism"
                          )
 out_3 <- 
     pairwise_wilcox_test(group_level, 
-                        min_effort ~ treatment)
+                        min_effort ~ treatment,
+                        ref.group = "Revision Mechanism"
+                        )
 out_4 <- 
     pairwise_wilcox_test(group_level, 
-                         num_sevens ~ treatment
+                         num_sevens ~ treatment,
+                         ref.group = "Revision Mechanism"
                          )
 out_5 <- 
     pairwise_wilcox_test(group_level, 
-                         full_coord ~ treatment
+                         full_coord ~ treatment,
+                         ref.group = "Revision Mechanism"
                          )
 
 # --- Save --- #
