@@ -40,7 +40,7 @@ if (is.null(opt$length)){
   stop("Length of period in seconds must be provided", call. = FALSE)
 }
 
-#--- Effort stored in Subjects Table --- # 
+#--- Effort stored in Globals Table --- # 
 globals <- 
     read_csv(opt$data)
 
