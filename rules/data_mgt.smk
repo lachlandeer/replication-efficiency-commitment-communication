@@ -2,13 +2,14 @@
 rule analysis_group:
     input:
         script = config["src_data_mgt"] + "gen_analysis_data_group.R",
-        indiv  = config["out_data"] + "analysis_data/individual.csv"
+        indiv  = config["out_data"] + "analysis_data/individual.csv",
+        eff    = config["out_analysis"] + "efficiency_group_period.csv"
     output:
         data = config["out_data"] + "analysis_data/group.csv"
     log:
         config["log"] + "data_mgt/gen_analysis_data_group.txt",
     shell:
-        "{runR} {input.script} --data {input.indiv} \
+        "{runR} {input.script} --data {input.indiv} --efficiency {input.eff} \
             --out {output.data} > {log} {logAll}"  
 
 # analysis_individual : Create the data set used in empirical analysis scripts for individual level outcomes

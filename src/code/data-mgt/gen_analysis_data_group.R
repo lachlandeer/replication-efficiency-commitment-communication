@@ -11,6 +11,12 @@ option_list = list(
                 help = "a csv file with decisions and pyaoffs from ALL treatments",
                 metavar = "character"
                 ),
+    make_option(c("-e", "--efficiency"),
+                type = "character",
+                default = NULL,
+                help = "a csv file with group level efficiency by period",
+                metavar = "character"
+                ),
 	make_option(c("-o", "--out"),
                 type = "character",
                 default = "out_analysis.csv",
@@ -31,9 +37,13 @@ if (is.null(opt$data)){
 # --- Load Data --- #
 message("Loading Data")
 in_data <- opt$data
+in_eff  <- opt$efficiency
 
 df <- 
     read_csv(in_data) 
+
+efficiency <-
+    read_csv(in_eff)
 
 # --- Creating Group Outcome Variables ---# 
 
@@ -53,6 +63,13 @@ group_level <-
               choice = mean(choice)
     ) %>%
     ungroup()
+
+# Merge in Treatment Efficiency Metrics
+message("Adding efficiency data")
+group_level <-
+    group_level %>%
+    inner_join(efficiency, by = join_by(period, group_id_unique)) %>%
+    select(-treatment_simple)
 
 # --- Save --- #
 message("Saving")
