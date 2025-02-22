@@ -9,12 +9,12 @@ option_list = list(
     make_option(c("-d", "--data"),
                 type = "character",
                 default = NULL,
-                help = "a csv file subject decisions and payoffs",
+                help = "a csv file subject of group decisions",
                 metavar = "character"
                 ),
 	make_option(c("-o", "--out"),
                 type = "character",
-                default = "efficiency.csv",
+                default = "result_01.csv",
                 help = "output file name [default = %default]",
                 metavar = "character"
                 )
@@ -25,7 +25,7 @@ opt = parse_args(opt_parser);
 
 if (is.null(opt$data)){
   print_help(opt_parser)
-  stop("Decisions and Payoffs data must be provided", call. = FALSE)
+  stop("Group by Period summary data must be provided", call. = FALSE)
 }
 
 
@@ -46,7 +46,7 @@ df <-
 out <- 
     pairwise_wilcox_test(
         df, 
-        payoff ~ treatment,
+        efficiency ~ treatment,
         ref.group = "Revision Mechanism"
         )
 

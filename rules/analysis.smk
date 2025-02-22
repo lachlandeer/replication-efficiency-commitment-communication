@@ -99,7 +99,7 @@ rule table_02_homosk:
 rule result_01_mwu:
     input: 
         script = config["src_analysis"] + "result_01.R",
-        data   = config["out_data"] + "analysis_data/individual.csv",
+        data   = config["out_data"] + "analysis_data/group.csv",
     output:
         file = config["out_analysis"] + "result_01_tests.csv"
     log:
