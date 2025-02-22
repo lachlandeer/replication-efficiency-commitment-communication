@@ -109,6 +109,20 @@ rule result_01_mwu:
          --out {output.file} > {log} {logAll}"
 
 
+# efficiency_group_period: Compute efficiency metrics by treatment and period
+rule efficiency_group_period:
+    input:
+        script = config["src_analysis"] + "efficiency_group_period.R",
+        data   = config["out_data"] + "analysis_data/individual.csv",
+        payoff_scalers = config["out_models"] + "max_and_min_profiles.json"
+    output:
+        data = config["out_analysis"] + "efficiency_group_period.csv",
+    log:
+        config["log"] + "analysis/efficiency_group_period.txt"
+    shell:
+        "{runR} {input.script} --data {input.data} --payoffs {input.payoff_scalers} \
+         --out {output.data} > {log} {logAll}"
+
 # efficiency: Compute efficiency metrics by treatment and period
 rule efficiency:
     input:
