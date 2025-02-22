@@ -29,8 +29,8 @@ if (is.null(opt$data)){
 
 # --- Load Data --- #
 df <-
-    read_csv(opt$data) %>%
-    filter(!(group1 %in% c("Synchronous RM", "Infrequent Revision Mechanism") & group2 %in% c("Synchronous RM", "Infrequent Revision Mechanism"))) 
+    read_csv(opt$data) #%>%
+    #filter(!(group1 %in% c("Synchronous RM", "Infrequent Revision Mechanism") & group2 %in% c("Synchronous RM", "Infrequent Revision Mechanism"))) 
 
 # --- Produce Table --- #
 tab <- 
@@ -42,6 +42,7 @@ tab <-
                outcome == "eqn_dev" ~ "Eqm Deviation",
                outcome == "min_effort" ~ "Min. Effort",
                outcome == "num_sevens" ~ "Freq. Efficient Effort",
+               outcome == "efficiency" ~ "Efficiency",
                TRUE ~ "Full Coordination"
            )
            ) %>%

@@ -61,6 +61,11 @@ out_5 <-
                          full_coord ~ treatment,
                          ref.group = "Revision Mechanism"
                          )
+out_6 <-
+    pairwise_wilcox_test(group_level, 
+                         efficiency ~ treatment,
+                         ref.group = "Revision Mechanism"
+                         )
 
 # --- Save --- #
 out <-
@@ -68,7 +73,8 @@ out <-
           out_2,
           out_3,
           out_4,
-          out_5
+          out_5,
+          out_6
           )
 
 write_csv(out, opt$out)

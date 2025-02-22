@@ -41,6 +41,7 @@ tab <-
                outcome == "eqn_dev" ~ "Eqm Deviation",
                outcome == "min_effort" ~ "Min. Effort",
                outcome == "num_sevens" ~ "Freq. Efficient Effort",
+               outcome == "efficiency" ~ "Efficiency",
                TRUE ~ "Full Coordination"
            )
            ) %>%

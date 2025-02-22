@@ -38,22 +38,33 @@ group_level <-
 #--- Pairwise Tests --- #
 out_1 <- 
     pairwise_wilcox_test(group_level, 
-                         payoff ~ treatment, 
+                         payoff ~ treatment,
+                         ref.group = "Revision Cheap Talk" 
                          )
 out_2 <- 
     pairwise_wilcox_test(group_level, 
-                         eqn_dev ~ treatment
+                         eqn_dev ~ treatment,
+                         ref.group = "Revision Cheap Talk"
                          )
 out_3 <- 
     pairwise_wilcox_test(group_level, 
-                        min_effort ~ treatment)
+                        min_effort ~ treatment,
+                         ref.group = "Revision Cheap Talk"
+                         )
 out_4 <- 
     pairwise_wilcox_test(group_level, 
-                         num_sevens ~ treatment
+                         num_sevens ~ treatment,
+                         ref.group = "Revision Cheap Talk"
                          )
 out_5 <- 
     pairwise_wilcox_test(group_level, 
-                         full_coord ~ treatment
+                         full_coord ~ treatment,
+                         ref.group = "Revision Cheap Talk"
+                         )
+out_6 <-
+    pairwise_wilcox_test(group_level, 
+                         efficiency ~ treatment,
+                         ref.group = "Revision Cheap Talk"
                          )
 
 # --- Save --- #
@@ -62,7 +73,8 @@ out <-
           out_2,
           out_3,
           out_4,
-          out_5
+          out_5,
+          out_6
           )
 
 write_csv(out, opt$out)
