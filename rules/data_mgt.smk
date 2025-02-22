@@ -59,6 +59,23 @@ rule gather_decisions:
             --out {output.data} \
             > {log} {logAll}"
 
+# recover_final_messages_rct: retrives final messages sent in RCT treatment
+rule recover_final_messages_rct:
+    input:
+        script   = config["src_data_mgt"] + "recover_final_messages_rct.R",
+        data     = config["out_data"] + "ztree/globals.csv",
+        subjects = config["out_data"] + "analysis_data/individual.csv"
+    output:
+        data = config["out_data"] + "decisions/final_messages_rct.csv"
+    params:
+        period_length = 60
+    log:
+        config["log"] + "data_mgt/recover_final_messages_rct.txt"
+    shell:
+        "{runR} {input.script} --data {input.data} --length {params.period_length} \
+            --subjects {input.subjects} --out {output.data} \
+            > {log} {logAll}"
+
 # recover_decisions_revision_final: retrives final effort choices for treatments that feature revision mechanism
 rule recover_decisions_revision_final:
     input:
