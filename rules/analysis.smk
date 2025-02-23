@@ -11,6 +11,20 @@ rule result_09:
         "{runR} {input.script} --data {input.data} \
          --out {output.file} > {log} {logAll}"
 
+# result_08: Statistical tests for result 8
+rule result_08:
+    input: 
+        script     = config["src_analysis"] + "result_08.R",
+        decisions  = config["out_data"] + "analysis_data/group.csv",
+        messages   = config["out_data"] + "analysis_data/messages_rct_group.csv"
+    output:
+        file = config["out_analysis"] + "result_08_tests.csv"
+    log:
+        config["log"] + "analysis/result_08.txt"
+    shell:
+        "{runR} {input.script} --decisions {input.decisions} --messages {input.messages} \
+         --out {output.file} > {log} {logAll}"
+
 # result_05: Statistical tests for result 5
 rule result_05:
     input: 
