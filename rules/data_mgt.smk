@@ -12,6 +12,19 @@ rule analysis_group:
         "{runR} {input.script} --data {input.indiv} --efficiency {input.eff} \
             --out {output.data} > {log} {logAll}"  
 
+# analysis_group_rct_messages : Create the data set used in empirical analysis scripts R-CT treatment messages
+rule analysis_group_rct_messages:
+    input:
+        script = config["src_data_mgt"] + "gen_analysis_group_rct_messages.R",
+        indiv  = config["out_data"] + "decisions/rct_messages_w_payoffs.csv",
+    output:
+        data = config["out_data"] + "analysis_data/messages_rct_group.csv"
+    log:
+        config["log"] + "data_mgt/gen_analysis_group_rct_messages.txt",
+    shell:
+        "{runR} {input.script} --data {input.indiv}  \
+            --out {output.data} > {log} {logAll}" 
+
 # analysis_individual : Create the data set used in empirical analysis scripts for individual level outcomes
 rule analysis_individual:
     input:

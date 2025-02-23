@@ -14,7 +14,7 @@ logAll = "2>&1"
 # all            : build outputs that are the core of the project
 rule all:
     input:
-        config["out_data"] + "decisions/rct_messages_w_payoffs.csv",
+        config["out_data"] + "analysis_data/messages_rct_group.csv",
         result_01    = config["out_tables"] + "result_01_mwu.tex",
         table_02_clustered = config["out_tables"] + "table_02_clustered.tex",
         table_02_homosk    = config["out_tables"] + "table_02_homosk.tex",
