@@ -35,7 +35,7 @@ df <-
 tab <- 
     df %>%
     select(group1, group2, statistic, p, n1, n2) %>%
-    mutate(p = if_else(p < 0.001, "<0.000", as.character(p))) %>%
+    mutate(p = if_else(p < 0.001, "<0.001", as.character(p))) %>%
     gt() %>%
     cols_label(
         group1 = "Treatment 1",

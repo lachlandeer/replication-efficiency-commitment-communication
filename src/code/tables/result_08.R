@@ -35,7 +35,7 @@ df <-
 tab <- 
     df %>%
     select(group1, group2, outcome =".y.", statistic, p) %>%
-    mutate(p = if_else(p < 0.001, "<0.000", as.character(p)),
+    mutate(p = if_else(p < 0.001, "<0.001", as.character(p)),
            outcome = case_when(
                outcome == "payoff" ~ "Payoff",
                outcome == "eqn_dev" ~ "Eqm Deviation",
