@@ -64,8 +64,9 @@ df <-
     group_by(period, group_id_unique) %>%
     mutate(min_choice = min(choice),
            eqn_dev = choice - min_choice,
-           eqn_dev_abs = abs(eqn_dev),
-           eqn_dev_sq = eqn_dev**2
+           #eqn_dev_abs = abs(eqn_dev),
+           #eqn_dev_sq = eqn_dev**2
+           efficient_dev = 7 - choice
            ) %>%
     ungroup()
 
