@@ -8,12 +8,12 @@ option_list = list(
     make_option(c("-d", "--data"),
                 type = "character",
                 default = NULL,
-                help = "a csv file with efficiency and std errors by treatment",
+                help = "a csv file with MWU results for treatment comparison",
                 metavar = "character"
                 ),
 	make_option(c("-o", "--out"),
                 type = "character",
-                default = "efficiency.tex",
+                default = "table.tex",
                 help = "output file name [default = %default]",
                 metavar = "character"
                 )
