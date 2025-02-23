@@ -84,6 +84,18 @@ out_5 <-
                          full_coord ~ time
                          )
 
+# Some Summary Statistics --- #
+message("Summary Stats for viewing")
+group_level %>%
+    group_by(time) %>% 
+    summarise(
+        payoff = mean(payoff),
+        eqn_dev = mean(eqn_dev),
+        min_effort = mean(min_effort),
+        num_sevens = mean(num_sevens),
+        full_coord = mean(full_coord)
+    )
+
 # --- Save --- #
 out <-
     rbind(out_1,
