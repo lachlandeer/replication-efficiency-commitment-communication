@@ -10,6 +10,18 @@ rule tab_result_09:
     shell:
         "{runR} {input.script} --data {input.data} --out {output.tex} > {log} {logAll}" 
 
+# tab_result_08: Produce a results table summarizing U tests for Result 9
+rule tab_result_08: 
+    input:
+        script = config["src_tables"] + "result_08.R",
+        data   = config["out_analysis"] + "result_08_tests.csv",
+    output:
+        tex = config["out_tables"] + "result_08.tex",
+    log:
+        config["log"] + "tables/result_08.txt",
+    shell:
+        "{runR} {input.script} --data {input.data} --out {output.tex} > {log} {logAll}" 
+
 # tab_result_05: Produce a results table summarizing U tests for Result 4
 rule tab_result_05: 
     input:
