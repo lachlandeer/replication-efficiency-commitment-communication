@@ -50,7 +50,8 @@ subjects_payoffs <-
     compute_payoff(effort_col = "choice", group_col = "group_id", time = "period") %>%
     group_by(period, group_id) %>%
     mutate(min_choice = min(choice),
-           eqn_dev = choice - min_choice
+           eqn_dev = choice - min_choice,
+           efficient_dev = 7 - choice
     ) %>%
     ungroup()
 

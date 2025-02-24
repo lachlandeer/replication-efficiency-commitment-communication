@@ -50,7 +50,11 @@ group_level <-
               payoff = mean(payoff),
               # eqn dev
               eqn_dev = mean(eqn_dev),
-              choice = mean(choice)
+              choice = mean(choice),
+              effort_4 = all(choice >= 4),  # TRUE if all group members chose  >= 4
+              effort_5 = all(choice >= 5), 
+              effort_6 = all(choice >= 6),
+              eff_dev = mean(efficient_dev)
     ) %>%
     ungroup()
 

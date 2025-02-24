@@ -1,4 +1,4 @@
-# result_09_rob: Robustness results for Result 1
+# result_09_rob: Robustness results for Result 9
 rule result_09_rob:
     input: 
         script = config["src_analysis"] + "result_09_robustness.R",
@@ -11,7 +11,21 @@ rule result_09_rob:
         "{runR} {input.script} --data {input.data} \
          --out {output.file} > {log} {logAll}"
 
-# result_05_rob: Robustness results for Result 1
+# result_08_rob: Robustness results for Result 8
+rule result_08_rob:
+    input: 
+        script = config["src_analysis"] + "result_08_robustness.R",
+        decisions  = config["out_data"] + "analysis_data/group.csv",
+        messages   = config["out_data"] + "analysis_data/messages_rct_group.csv"
+    output:
+        file = config["out_analysis"] + "result_08_robustness.Rds"
+    log:
+        config["log"] + "analysis/result_08_robustness.txt"
+    shell:
+        "{runR} {input.script} --decisions {input.decisions} --messages {input.messages} \
+         --out {output.file} > {log} {logAll}"
+
+# result_05_rob: Robustness results for Result 5
 rule result_05_rob:
     input: 
         script = config["src_analysis"] + "result_05_robustness.R",
@@ -24,7 +38,7 @@ rule result_05_rob:
         "{runR} {input.script} --data {input.data} \
          --out {output.file} > {log} {logAll}"
 
-# result_04_rob: Robustness results for Result 1
+# result_04_rob: Robustness results for Result 4
 rule result_04_rob:
     input: 
         script = config["src_analysis"] + "result_04_robustness.R",
@@ -37,7 +51,7 @@ rule result_04_rob:
         "{runR} {input.script} --data {input.data} \
          --out {output.file} > {log} {logAll}"
 
-# result_03_rob: Robustness results for Result 1
+# result_03_rob: Robustness results for Result 3
 rule result_03_rob:
     input: 
         script = config["src_analysis"] + "result_03_robustness.R",

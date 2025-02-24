@@ -41,7 +41,8 @@ if (is.null(opt$messages)){
 # --- Load the Data --- #
 message("Loading Decisions data")
 group_level <- 
-    read_csv(opt$decisions) %>%
+    read_csv(opt$decisions) %>% 
+    filter(treatment == "Revision Cheap Talk") %>%
     mutate(time = "decision") %>%
     mutate(full_coord = as.numeric(full_coord)) %>% 
     select(group_id = group_id_unique, period, min_effort, full_coord, num_sevens, payoff, eqn_dev, choice, time)

@@ -18,6 +18,7 @@ rule all:
         result_03_rob = config["out_analysis"] + "result_03_robustness.Rds",
         result_04_rob = config["out_analysis"] + "result_04_robustness.Rds",
         result_05_rob = config["out_analysis"] + "result_05_robustness.Rds",
+        result_08_rob = config["out_analysis"] + "result_08_robustness.Rds",
         result_09_rob = config["out_analysis"] + "result_09_robustness.Rds",
         table_02_clustered = config["out_tables"] + "table_02_clustered.tex",
         table_02_homosk    = config["out_tables"] + "table_02_homosk.tex",
