@@ -14,7 +14,11 @@ logAll = "2>&1"
 # all            : build outputs that are the core of the project
 rule all:
     input:
-        result_01    = config["out_tables"] + "result_01_mwu.tex",
+        result_01_rob = config["out_tables"] + "table_01_robustness.tex",
+        result_03_rob = config["out_analysis"] + "result_03_robustness.Rds",
+        result_04_rob = config["out_analysis"] + "result_04_robustness.Rds",
+        result_05_rob = config["out_analysis"] + "result_05_robustness.Rds",
+        result_09_rob = config["out_analysis"] + "result_09_robustness.Rds",
         table_02_clustered = config["out_tables"] + "table_02_clustered.tex",
         table_02_homosk    = config["out_tables"] + "table_02_homosk.tex",
         result_02_mwu = config["out_analysis"] + "result_02_mwu.json",

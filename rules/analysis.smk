@@ -1,3 +1,68 @@
+# result_09_rob: Robustness results for Result 1
+rule result_09_rob:
+    input: 
+        script = config["src_analysis"] + "result_09_robustness.R",
+        data   = config["out_data"] + "analysis_data/group.csv",
+    output:
+        file = config["out_analysis"] + "result_09_robustness.Rds"
+    log:
+        config["log"] + "analysis/result_09_robustness.txt"
+    shell:
+        "{runR} {input.script} --data {input.data} \
+         --out {output.file} > {log} {logAll}"
+
+# result_05_rob: Robustness results for Result 1
+rule result_05_rob:
+    input: 
+        script = config["src_analysis"] + "result_05_robustness.R",
+        data   = config["out_data"] + "analysis_data/group.csv",
+    output:
+        file = config["out_analysis"] + "result_05_robustness.Rds"
+    log:
+        config["log"] + "analysis/result_05_robustness.txt"
+    shell:
+        "{runR} {input.script} --data {input.data} \
+         --out {output.file} > {log} {logAll}"
+
+# result_04_rob: Robustness results for Result 1
+rule result_04_rob:
+    input: 
+        script = config["src_analysis"] + "result_04_robustness.R",
+        data   = config["out_data"] + "analysis_data/group.csv",
+    output:
+        file = config["out_analysis"] + "result_04_robustness.Rds"
+    log:
+        config["log"] + "analysis/result_04_robustness.txt"
+    shell:
+        "{runR} {input.script} --data {input.data} \
+         --out {output.file} > {log} {logAll}"
+
+# result_03_rob: Robustness results for Result 1
+rule result_03_rob:
+    input: 
+        script = config["src_analysis"] + "result_03_robustness.R",
+        data   = config["out_data"] + "analysis_data/group.csv",
+    output:
+        file = config["out_analysis"] + "result_03_robustness.Rds"
+    log:
+        config["log"] + "analysis/result_03_robustness.txt"
+    shell:
+        "{runR} {input.script} --data {input.data} \
+         --out {output.file} > {log} {logAll}"
+
+# result_01_rob: Robustness results for Result 1
+rule result_01_rob:
+    input: 
+        script = config["src_analysis"] + "result_01_robustness.R",
+        data   = config["out_data"] + "analysis_data/group.csv",
+    output:
+        file = config["out_analysis"] + "result_01_robustness.Rds"
+    log:
+        config["log"] + "analysis/result_01_robustness.txt"
+    shell:
+        "{runR} {input.script} --data {input.data} \
+         --out {output.file} > {log} {logAll}"
+
 # result_09: Statistical tests for result 9
 rule result_09:
     input: 

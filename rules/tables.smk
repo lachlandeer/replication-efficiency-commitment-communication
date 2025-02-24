@@ -82,6 +82,18 @@ rule tab_02_clustered:
     shell:
         "{runR} {input.script} --models {input.models} --out {output.tex} > {log} {logAll}" 
 
+# tab_res_01_robustness:   Regression Table for robustness of estimates result 1
+rule tab_res_01_robustness:
+    input: 
+        script = config["src_tables"] + "tab_res_01_robustness.R",
+        models = config["out_analysis"] + "result_01_robustness.Rds"
+    output:
+        tex = config["out_tables"] + "table_01_robustness.tex",
+    log:
+        config["log"] + "tables/table_01_robustness.txt",
+    shell:
+        "{runR} {input.script} --models {input.models} --out {output.tex} > {log} {logAll}" 
+
 # tab_result_01_mwu: Produce a results table summarizing U tests for Result 1
 rule tab_result_01_mwu: 
     input:
