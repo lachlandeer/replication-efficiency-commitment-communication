@@ -46,7 +46,7 @@ group_level <-
 # Authors state that they cluster standard errors at the group level, so we do the same
 message("Payoff Regression")
 model_1 <-
-    lm_robust(payoff ~ relevel(as.factor(treatment), ref = "Standard Cheap Talk") + 
+    lm_robust(payoff ~ relevel(as.factor(treatment), ref = "Baseline") + 
                   as.factor(period),
               data = group_level, 
               clusters = group_id_unique
@@ -55,7 +55,7 @@ model_1 <-
 # model 2
 message("efficiency Regression")
 model_2 <-
-    lm_robust(efficiency ~ relevel(as.factor(treatment), ref = "Standard Cheap Talk") + 
+    lm_robust(efficiency ~ relevel(as.factor(treatment), ref = "Baseline") + 
                   as.factor(period),
               data = group_level,
               clusters = group_id_unique
@@ -64,7 +64,7 @@ model_2 <-
 # min effort
 message("Min Effort Regression")
 model_3<-
-    lm_robust(min_effort~ relevel(as.factor(treatment), ref = "Standard Cheap Talk") + 
+    lm_robust(min_effort~ relevel(as.factor(treatment), ref = "Baseline") + 
                   as.factor(period),
               data = group_level,
               cluster = group_id_unique
@@ -73,7 +73,7 @@ model_3<-
 # freq 7's
 message("Number of 7's Regression")
 model_4 <-
-    lm_robust(num_sevens ~ relevel(as.factor(treatment), ref = "Standard Cheap Talk") + 
+    lm_robust(num_sevens ~ relevel(as.factor(treatment), ref = "Baseline") + 
                   as.factor(period),
               data = group_level,
               cluster = group_id_unique
@@ -82,7 +82,7 @@ model_4 <-
 # full coord
 message("Full Coordination Regression")
 model_5 <-
-    lm_robust(full_coord ~ relevel(as.factor(treatment), ref = "Standard Cheap Talk") + 
+    lm_robust(full_coord ~ relevel(as.factor(treatment), ref = "Baseline") + 
                   as.factor(period),
               data = group_level, 
               cluster = group_id_unique
@@ -91,7 +91,7 @@ model_5 <-
 # model 5
 message("Equil Deviation Regression")
 model_6 <-
-    lm_robust(eqn_dev ~ relevel(as.factor(treatment), ref = "Standard Cheap Talk") + 
+    lm_robust(eqn_dev ~ relevel(as.factor(treatment), ref = "Baseline") + 
                   as.factor(period),
               data = group_level,
               clusters = group_id_unique
@@ -99,28 +99,28 @@ model_6 <-
 
 # model 7
 model_7 <-
-    lm_robust(eff_dev ~ relevel(as.factor(treatment), ref = "Standard Cheap Talk") + 
+    lm_robust(eff_dev ~ relevel(as.factor(treatment), ref = "Baseline") + 
                   as.factor(period),
               data = group_level,
               clusters = group_id_unique
     )
 
 model_8 <-
-    lm_robust(effort_4 ~ relevel(as.factor(treatment), ref = "Standard Cheap Talk") + 
+    lm_robust(effort_4 ~ relevel(as.factor(treatment), ref = "Baseline") + 
                   as.factor(period),
               data = group_level,
               clusters = group_id_unique
     )
 
 model_9 <-
-    lm_robust(effort_5 ~ relevel(as.factor(treatment), ref = "Standard Cheap Talk") + 
+    lm_robust(effort_5 ~ relevel(as.factor(treatment), ref = "Baseline") + 
                   as.factor(period),
               data = group_level,
               clusters = group_id_unique
     )
 
 model_10 <-
-    lm_robust(effort_6 ~ relevel(as.factor(treatment), ref = "Standard Cheap Talk") + 
+    lm_robust(effort_6 ~ relevel(as.factor(treatment), ref = "Baseline") + 
                   as.factor(period),
               data = group_level,
               clusters = group_id_unique

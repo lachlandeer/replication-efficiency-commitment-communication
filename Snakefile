@@ -15,11 +15,11 @@ logAll = "2>&1"
 rule all:
     input:
         result_01_rob = config["out_tables"] + "table_01_robustness.tex",
-        result_03_rob = config["out_analysis"] + "result_03_robustness.Rds",
-        result_04_rob = config["out_analysis"] + "result_04_robustness.Rds",
-        result_05_rob = config["out_analysis"] + "result_05_robustness.Rds",
-        result_08_rob = config["out_analysis"] + "result_08_robustness.Rds",
-        result_09_rob = config["out_analysis"] + "result_09_robustness.Rds",
+        result_03_rob = config["out_tables"] + "table_03_robustness.tex",
+        result_04_rob = config["out_tables"] + "table_04_robustness.tex",
+        result_05_rob = config["out_tables"] + "table_05_robustness.tex",
+        result_08_rob = config["out_tables"] + "table_08_robustness.tex",
+        result_09_rob = config["out_tables"] + "table_09_robustness.tex",
         table_02_clustered = config["out_tables"] + "table_02_clustered.tex",
         table_02_homosk    = config["out_tables"] + "table_02_homosk.tex",
         result_02_mwu = config["out_analysis"] + "result_02_mwu.json",

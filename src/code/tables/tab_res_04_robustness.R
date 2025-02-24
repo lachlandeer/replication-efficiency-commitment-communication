@@ -36,10 +36,8 @@ col_names <- c('(1)', '(2)', '(3)', '(4)', '(5)', '(6)', '(7)', '(8)', '(9)', '(
 names(models) <- col_names
 
 cm <- c(
-        'relevel(as.factor(treatment), ref = "Baseline")Standard Cheap Talk' = "Standard Cheap Talk",
-        'relevel(as.factor(treatment), ref = "Baseline")Revision Mechanism' = 'Revision Mechanism',
-        # 'relevel(as.factor(treatment), ref = "Standard Cheap Talk")Baseline' = "Baseline",
-        # 'relevel(as.factor(treatment), ref = "Standard Cheap Talk")Revision Mechanism' = 'Revision Mechanism',
+        'relevel(as.factor(treatment), ref = "Revision Mechanism")Synchronous RM' = "Synchronous RM",
+        'relevel(as.factor(treatment), ref = "Revision Mechanism")Infrequent Revision Mechanism' = 'Infrequent RM',
         # we omit controls and present them as Yes/No
         # finally the intercept
         '(Intercept)' = 'Intercept'

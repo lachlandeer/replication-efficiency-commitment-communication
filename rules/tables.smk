@@ -1,3 +1,75 @@
+# tab_res_09_robustness:   Regression Table for robustness of estimates result 9
+rule tab_res_09_robustness:
+    input: 
+        script = config["src_tables"] + "tab_res_09_robustness.R",
+        models = config["out_analysis"] + "result_09_robustness.Rds"
+    output:
+        tex = config["out_tables"] + "table_09_robustness.tex",
+    log:
+        config["log"] + "tables/table_09_robustness.txt",
+    shell:
+        "{runR} {input.script} --models {input.models} --out {output.tex} > {log} {logAll}" 
+
+# tab_res_08_robustness:   Regression Table for robustness of estimates result 8
+rule tab_res_08_robustness:
+    input: 
+        script = config["src_tables"] + "tab_res_08_robustness.R",
+        models = config["out_analysis"] + "result_08_robustness.Rds"
+    output:
+        tex = config["out_tables"] + "table_08_robustness.tex",
+    log:
+        config["log"] + "tables/table_08_robustness.txt",
+    shell:
+        "{runR} {input.script} --models {input.models} --out {output.tex} > {log} {logAll}" 
+
+# tab_res_05_robustness:   Regression Table for robustness of estimates result 5
+rule tab_res_05_robustness:
+    input: 
+        script = config["src_tables"] + "tab_res_05_robustness.R",
+        models = config["out_analysis"] + "result_05_robustness.Rds"
+    output:
+        tex = config["out_tables"] + "table_05_robustness.tex",
+    log:
+        config["log"] + "tables/table_05_robustness.txt",
+    shell:
+        "{runR} {input.script} --models {input.models} --out {output.tex} > {log} {logAll}" 
+
+# tab_res_04_robustness:   Regression Table for robustness of estimates result 4
+rule tab_res_04_robustness:
+    input: 
+        script = config["src_tables"] + "tab_res_04_robustness.R",
+        models = config["out_analysis"] + "result_04_robustness.Rds"
+    output:
+        tex = config["out_tables"] + "table_04_robustness.tex",
+    log:
+        config["log"] + "tables/table_04_robustness.txt",
+    shell:
+        "{runR} {input.script} --models {input.models} --out {output.tex} > {log} {logAll}" 
+
+# tab_res_03_robustness:   Regression Table for robustness of estimates result 3
+rule tab_res_03_robustness:
+    input: 
+        script = config["src_tables"] + "tab_res_03_robustness.R",
+        models = config["out_analysis"] + "result_03_robustness.Rds"
+    output:
+        tex = config["out_tables"] + "table_03_robustness.tex",
+    log:
+        config["log"] + "tables/table_03_robustness.txt",
+    shell:
+        "{runR} {input.script} --models {input.models} --out {output.tex} > {log} {logAll}" 
+
+# tab_res_01_robustness:   Regression Table for robustness of estimates result 1
+rule tab_res_01_robustness:
+    input: 
+        script = config["src_tables"] + "tab_res_01_robustness.R",
+        models = config["out_analysis"] + "result_01_robustness.Rds"
+    output:
+        tex = config["out_tables"] + "table_01_robustness.tex",
+    log:
+        config["log"] + "tables/table_01_robustness.txt",
+    shell:
+        "{runR} {input.script} --models {input.models} --out {output.tex} > {log} {logAll}" 
+
 # tab_result_09: Produce a results table summarizing U tests for Result 9
 rule tab_result_09: 
     input:
@@ -79,18 +151,6 @@ rule tab_02_clustered:
         tex = config["out_tables"] + "table_02_clustered.tex",
     log:
         config["log"] + "tables/table_02_clustered.txt",
-    shell:
-        "{runR} {input.script} --models {input.models} --out {output.tex} > {log} {logAll}" 
-
-# tab_res_01_robustness:   Regression Table for robustness of estimates result 1
-rule tab_res_01_robustness:
-    input: 
-        script = config["src_tables"] + "tab_res_01_robustness.R",
-        models = config["out_analysis"] + "result_01_robustness.Rds"
-    output:
-        tex = config["out_tables"] + "table_01_robustness.tex",
-    log:
-        config["log"] + "tables/table_01_robustness.txt",
     shell:
         "{runR} {input.script} --models {input.models} --out {output.tex} > {log} {logAll}" 
 

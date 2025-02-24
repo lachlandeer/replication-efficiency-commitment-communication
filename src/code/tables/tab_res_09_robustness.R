@@ -36,10 +36,7 @@ col_names <- c('(1)', '(2)', '(3)', '(4)', '(5)', '(6)', '(7)', '(8)', '(9)', '(
 names(models) <- col_names
 
 cm <- c(
-        'relevel(as.factor(treatment), ref = "Baseline")Standard Cheap Talk' = "Standard Cheap Talk",
-        'relevel(as.factor(treatment), ref = "Baseline")Revision Mechanism' = 'Revision Mechanism',
-        # 'relevel(as.factor(treatment), ref = "Standard Cheap Talk")Baseline' = "Baseline",
-        # 'relevel(as.factor(treatment), ref = "Standard Cheap Talk")Revision Mechanism' = 'Revision Mechanism',
+        'relevel(as.factor(treatment), ref = "Revision Cheap Talk")Richer RCT' = "Richer RCT",
         # we omit controls and present them as Yes/No
         # finally the intercept
         '(Intercept)' = 'Intercept'
@@ -52,7 +49,7 @@ add_rows <-tribble(
     )
 
 
-attr(add_rows, 'position') <- c(7)
+attr(add_rows, 'position') <- c(5)
 
 # Adding a name for the dependent variable
 dep_var <- c(' ' =1, 'Dependent variable' =10)
@@ -86,7 +83,7 @@ tab <-
     )   %>%
     add_header_above(dep_var_names) %>%
     add_header_above(dep_var) %>%
-    row_spec(7, 
+    row_spec(5, 
              extra_latex_after = "\\midrule") 
 
 # --- Save the Output --- #
